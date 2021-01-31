@@ -1,0 +1,135 @@
+﻿<Window x:Class="SimpleCalculator.CalculatorWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SimpleCalculator"
+        mc:Ignorable="d"
+        Title="Simple Calculator" 
+        Height="430" 
+        Width="300"
+        Background="DarkSlateBlue">
+    
+    <Window.Resources>
+        <Style x:Key="MainButtonStyle" TargetType="Button">
+            <Setter Property="Width" Value="80"/>
+            <Setter Property="Height" Value="30"/>
+        </Style>
+        <Style x:Key="MainLabelStyle" TargetType="Label">
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+        <Style x:Key="MainTextBoxStyle" TargetType="TextBox">
+            <Setter Property="Width" Value="80"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+        <Style x:Key="MainComboBoxStyle" TargetType="ComboBox">
+            <Setter Property="Width" Value="80"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+        </Style>
+    </Window.Resources>
+    
+    <Grid>
+        <StackPanel>
+            <Image
+                Width="180"
+                Source="/Images/rectprism.jpg"/>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Content="Width"
+                    Style="{StaticResource MainLabelStyle}"/>
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Content="Length"
+                    Style="{StaticResource MainLabelStyle}"/>
+                <Label
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    Content="Height"
+                    Style="{StaticResource MainLabelStyle}"/>
+                <TextBox
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    x:Name="TextBox_Width"
+                    Style="{StaticResource MainTextBoxStyle}"/>
+                <TextBox
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    x:Name="TextBox_Length"
+                    Style="{StaticResource MainTextBoxStyle}"/>
+                <TextBox
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    x:Name="TextBox_Height"
+                    Style="{StaticResource MainTextBoxStyle}"/>
+                <ComboBox
+                    Grid.Row="0"
+                    Grid.Column="2"
+                    x:Name="ComboBox_Operation"
+                    Style="{StaticResource MainComboBoxStyle}">
+                    <ComboBoxItem Content="Volume" IsSelected="true"/>
+                    <ComboBoxItem Content="Surface Area"/>
+                </ComboBox>
+                <ComboBox
+                    Grid.Row="1"
+                    Grid.Column="2"
+                    x:Name="ComboBox_Units"
+                    Style="{StaticResource MainComboBoxStyle}">
+                    <ComboBoxItem Content="Feet" IsSelected="true"/>
+                    <ComboBoxItem Content="Meters"/>
+                </ComboBox>
+                <Button
+                    Grid.Row="2"
+                    Grid.Column="2"
+                    x:Name="Button_Calculate"
+                    Style="{StaticResource MainButtonStyle}"
+                    Content="Calculate" Click="Button_Calculate_Click"/>
+                <TextBox
+                    Grid.Row="3"
+                    Grid.Column="0"
+                    x:Name="TextBox_Result"
+                    Width="200"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    HorizontalContentAlignment="Center"
+                    IsReadOnly="True"
+                    Grid.ColumnSpan="3"/>
+                <Button
+                    Grid.Row="4"
+                    Grid.Column="0"
+                    x:Name="Button_Help"
+                    Style="{StaticResource MainButtonStyle}"
+                    Content="Help" Click="Button_Help_Click"/>
+                <Button
+                    Grid.Row="4"
+                    Grid.Column="1"
+                    x:Name="Button_Clear"
+                    Style="{StaticResource MainButtonStyle}"
+                    Content="Clear" Click="Button_Clear_Click"/>
+                <Button
+                    Grid.Row="4"
+                    Grid.Column="2"
+                    x:Name="Button_Close"
+                    Style="{StaticResource MainButtonStyle}"
+                    Content="Close" Click="Button_Close_Click"/>
+            </Grid>
+        </StackPanel>
+    </Grid>
+</Window>
